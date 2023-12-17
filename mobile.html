@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodio Player</title>
+    <title>Rodio Mobile Player</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         body {
@@ -33,7 +33,11 @@
         }
 
         button::before {
-            content: ""; /* No content before the button */
+            content: "\25B6"; /* Unicode character for a right-pointing triangle (play icon) */
+        }
+
+        button.playing::before {
+            content: "\II"; /* Unicode character for two vertical bars (pause icon) */
         }
 
         button:hover {
@@ -51,8 +55,10 @@
         playPauseBtn.addEventListener("click", function() {
             if (audio.paused) {
                 audio.play();
+                playPauseBtn.classList.add("playing");
             } else {
                 audio.pause();
+                playPauseBtn.classList.remove("playing");
             }
         });
     </script>
