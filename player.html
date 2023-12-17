@@ -8,15 +8,19 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #333;
+            background-color: black; /* Background color set to black */
             color: white;
             padding: 20px;
+            margin: 0; /* Remove default body margin */
+            height: 100vh; /* Set height to 100% of the viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #audio-player {
             width: 100%;
             max-width: 400px;
-            margin: 20px auto;
             background-color: #444;
             padding: 15px;
             border-radius: 10px;
@@ -27,8 +31,8 @@
         }
 
         button {
-            background-color: #1db954;
-            color: white;
+            background-color: white; /* Play button color set to white */
+            color: black; /* Text color for the button */
             border: none;
             padding: 10px 20px;
             margin: 0 5px;
@@ -38,7 +42,7 @@
         }
 
         button:hover {
-            background-color: #168f3a;
+            background-color: #eee; /* Lighter color on hover */
         }
 
         input[type="range"] {
@@ -49,16 +53,16 @@
         /* Mobile-friendly adjustments */
         @media screen and (max-width: 600px) {
             button {
-                padding: 20px 40px; /* Increase button size for smaller screens */
-                font-size: 24px; /* Increase font size */
+                padding: 20px 40px;
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
-    <h1>Rodio Player</h1>
-
     <div id="audio-player">
+        <h1>Rodio Player</h1>
+
         <audio id="myAudio" controls>
             <source src="https://stream.rodio.ir/listen/noheh/radio.mp3" type="audio/mp3">
             Your browser does not support the audio element.
