@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML5 Audio Player</title>
+    <title>Rodio Player</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
+            background-color: black; /* Set the background color to black */
+            color: white; /* Set text color to white */
         }
 
         audio {
@@ -16,13 +18,26 @@
             max-width: 400px;
             margin-top: 20px;
         }
+
+        /* Customize the play button */
+        audio::-webkit-media-controls-start-playback-button {
+            color: white;
+            font-size: 5em; /* 5 times bigger */
+            margin: 0 auto; /* Center the button */
+        }
+
+        audio::-webkit-media-controls-play-button {
+            color: white;
+            font-size: 5em; /* 5 times bigger */
+            margin: 0 auto; /* Center the button */
+        }
     </style>
 </head>
 <body>
     <h1>HTML5 Audio Player</h1>
 
     <audio controls>
-        <source src="https://stream.rodio.ir/listen/noheh/radio.mp3" type="audio/mp3">
+        <source src="your-audio-file.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 </body>
