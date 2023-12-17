@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodio | رودیو نوحه</title>
+    <title>Rodio | رودیو</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         body {
@@ -25,6 +25,10 @@
             align-items: center;
         }
 
+        h1 {
+            font-family: 'Vazir', sans-serif; /* Use Vazir font for headings */
+        }
+
         button {
             background-color: white;
             color: black;
@@ -33,7 +37,8 @@
             margin: 10px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 24px;
+            font-size: 28px; /* Larger font size */
+            font-weight: bold; /* Bold font */
             font-family: 'Vazir', sans-serif; /* Use Vazir font for the button */
         }
 
@@ -45,7 +50,7 @@
         @media screen and (max-width: 600px) {
             button {
                 padding: 30px 60px;
-                font-size: 30px;
+                font-size: 36px; /* Larger font size for mobile */
             }
         }
     </style>
@@ -58,7 +63,7 @@
     </div>
 
     <script>
-        var audio = new Audio("https://stream.rodio.ir/listen/noheh/radio.mp3");
+        var audio = new Audio("https://stream.rodio.ir/listen/noheh/radio.mp3"); // Creating an Audio object programmatically
         var playPauseBtn = document.getElementById("playPauseBtn");
 
         playPauseBtn.addEventListener("click", function() {
