@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodio | رودیو</title>
+    <title>Rodio Mobile Player| رودیو نوحه</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         body {
@@ -19,51 +19,28 @@
             font-family: 'Vazir', sans-serif; /* Set the font for the body */
         }
 
-        #play-button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            font-family: 'Vazir', sans-serif; /* Use Vazir font for headings */
-        }
-
         button {
             background-color: white;
             color: black;
             border: none;
-            padding: 20px;
-            margin: 10px;
-            cursor: pointer;
+            width: 100px; /* Adjust the width as needed */
+            height: 100px; /* Ensure the height is the same as the width to make a perfect circle */
             border-radius: 50%; /* Make the button circular */
-            font-size: 28px; /* Larger font size */
+            font-size: 36px; /* Larger font size */
             font-weight: bold; /* Bold font */
             font-family: 'Vazir', sans-serif; /* Set the font for the button */
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         button::before {
             content: "\25B6"; /* Unicode character for a right-pointing triangle (play icon) */
-            font-size: 36px;
+        }
+
+        button.playing::before {
+            content: "\II"; /* Unicode character for two vertical bars (pause icon) */
         }
 
         button:hover {
             background-color: #eee;
-        }
-
-        /* Mobile-friendly adjustments */
-        @media screen and (max-width: 600px) {
-            button {
-                padding: 30px;
-                font-size: 36px; /* Larger font size for mobile */
-            }
-
-            button::before {
-                font-size: 48px;
-            }
         }
     </style>
 </head>
@@ -73,16 +50,17 @@
 
         <button id="playPauseBtn"></button>
     </div>
-
     <script>
-        var audio = new Audio("https://stream.rodio.ir/listen/noheh/radio.mp3"); // Creating an Audio object programmatically
+        var audio = new Audio("https://stream.rodio.ir/listen/noheh/radio.mp3"); // Replace with the actual path or URL of your audio file
         var playPauseBtn = document.getElementById("playPauseBtn");
 
         playPauseBtn.addEventListener("click", function() {
             if (audio.paused) {
                 audio.play();
+                playPauseBtn.classList.add("playing");
             } else {
                 audio.pause();
+                playPauseBtn.classList.remove("playing");
             }
         });
     </script>
