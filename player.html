@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodio Player</title>
+    <title>Rodio | رودیو</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Vazir', sans-serif; /* Use Vazir Matn font */
             text-align: center;
             background-color: black;
             color: white;
@@ -50,7 +51,7 @@
 </head>
 <body>
     <div id="play-button-container">
-        <h1>Rodio Player</h1>
+        <h1>رودیو نوحه</h1>
 
         <button id="playPauseBtn">Play</button>
     </div>
@@ -62,10 +63,10 @@
         playPauseBtn.addEventListener("click", function() {
             if (audio.paused) {
                 audio.play();
-                playPauseBtn.innerHTML = "Pause";
+                playPauseBtn.innerHTML = "توقف";
             } else {
                 audio.pause();
-                playPauseBtn.innerHTML = "Play";
+                playPauseBtn.innerHTML = "پخش";
             }
         });
     </script>
