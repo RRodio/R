@@ -16,6 +16,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: 'Vazir', sans-serif; /* Set the font for the body */
         }
 
         #play-button-container {
@@ -38,6 +39,7 @@
             border-radius: 5px;
             font-size: 28px; /* Larger font size */
             font-weight: bold; /* Bold font */
+            font-family: 'Vazir', sans-serif; /* Set the font for the button */
         }
 
         button:hover {
@@ -46,10 +48,6 @@
 
         /* Mobile-friendly adjustments */
         @media screen and (max-width: 600px) {
-            body {
-                font-family: 'Vazir', sans-serif; /* Explicitly set font for the body on mobile */
-            }
-
             button {
                 padding: 30px 60px;
                 font-size: 36px; /* Larger font size for mobile */
@@ -65,7 +63,7 @@
     </div>
 
     <script>
-        var audio = new Audio("https://stream.rodio.ir/listen/noheh/radio.mp3"); // Creating an Audio object programmatically
+        var audio = new Audio("your-audio-file.mp3"); // Creating an Audio object programmatically
         var playPauseBtn = document.getElementById("playPauseBtn");
 
         playPauseBtn.addEventListener("click", function() {
