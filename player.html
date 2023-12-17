@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         body {
-            font-family: 'Vazir', sans-serif;
             text-align: center;
             background-color: black;
             color: white;
@@ -39,7 +38,6 @@
             border-radius: 5px;
             font-size: 28px; /* Larger font size */
             font-weight: bold; /* Bold font */
-            font-family: 'Vazir', sans-serif; /* Use Vazir font for the button */
         }
 
         button:hover {
@@ -48,6 +46,10 @@
 
         /* Mobile-friendly adjustments */
         @media screen and (max-width: 600px) {
+            body {
+                font-family: 'Vazir', sans-serif; /* Explicitly set font for the body on mobile */
+            }
+
             button {
                 padding: 30px 60px;
                 font-size: 36px; /* Larger font size for mobile */
