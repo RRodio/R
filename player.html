@@ -8,37 +8,87 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px;
-            background-color: black; /* Set the background color to black */
-            color: white; /* Set text color to white */
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        #audio-player {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #444;
+            padding: 15px;
+            border-radius: 10px;
         }
 
         audio {
             width: 100%;
-            max-width: 400px;
-            margin-top: 20px;
         }
 
-        /* Customize the play button */
-        audio::-webkit-media-controls-start-playback-button {
+        button {
+            background-color: #1db954;
             color: white;
-            font-size: 5em; /* 5 times bigger */
-            margin: 0 auto; /* Center the button */
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
-        audio::-webkit-media-controls-play-button {
-            color: white;
-            font-size: 5em; /* 5 times bigger */
-            margin: 0 auto; /* Center the button */
+        button:hover {
+            background-color: #168f3a;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* Mobile-friendly adjustments */
+        @media screen and (max-width: 600px) {
+            button {
+                padding: 20px 40px; /* Increase button size for smaller screens */
+                font-size: 24px; /* Increase font size */
+            }
         }
     </style>
 </head>
 <body>
     <h1>Rodio Player</h1>
 
-    <audio controls>
-        <source src="https://stream.rodio.ir/listen/noheh/radio.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+    <div id="audio-player">
+        <audio id="myAudio" controls>
+            <source src="https://stream.rodio.ir/listen/noheh/radio.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <div>
+            <button id="playPauseBtn">Play</button>
+            <input type="range" id="volumeControl" value="100" step="1">
+        </div>
+    </div>
+
+    <script>
+        var audio = document.getElementById("myAudio");
+        var playPauseBtn = document.getElementById("playPauseBtn");
+
+        playPauseBtn.addEventListener("click", function() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.innerHTML = "Pause";
+            } else {
+                audio.pause();
+                playPauseBtn.innerHTML = "Play";
+            }
+        });
+
+        var volumeControl = document.getElementById("volumeControl");
+
+        volumeControl.addEventListener("input", function() {
+            audio.volume = volumeControl.value / 100;
+        });
+    </script>
 </body>
 </html>
