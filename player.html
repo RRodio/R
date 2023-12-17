@@ -8,74 +8,55 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: black; /* Background color set to black */
+            background-color: black;
             color: white;
-            padding: 20px;
-            margin: 0; /* Remove default body margin */
-            height: 100vh; /* Set height to 100% of the viewport height */
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling on mobile */
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        #audio-player {
-            width: 100%;
-            max-width: 400px;
-            background-color: #444;
-            padding: 15px;
-            border-radius: 10px;
-        }
-
-        audio {
-            width: 100%;
+        #play-button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         button {
-            background-color: white; /* Play button color set to white */
-            color: black; /* Text color for the button */
+            background-color: white;
+            color: black;
             border: none;
-            padding: 10px 20px;
-            margin: 0 5px;
+            padding: 20px 40px;
+            margin: 10px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 24px;
         }
 
         button:hover {
-            background-color: #eee; /* Lighter color on hover */
-        }
-
-        input[type="range"] {
-            width: 100%;
-            margin-top: 10px;
+            background-color: #eee;
         }
 
         /* Mobile-friendly adjustments */
         @media screen and (max-width: 600px) {
             button {
-                padding: 20px 40px;
-                font-size: 24px;
+                padding: 30px 60px;
+                font-size: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <div id="audio-player">
+    <div id="play-button-container">
         <h1>Rodio Player</h1>
 
-        <audio id="myAudio" controls>
-            <source src="https://stream.rodio.ir/listen/noheh/radio.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
-
-        <div>
-            <button id="playPauseBtn">Play</button>
-            <input type="range" id="volumeControl" value="100" step="1">
-        </div>
+        <button id="playPauseBtn">Play</button>
     </div>
 
     <script>
-        var audio = document.getElementById("myAudio");
+        var audio = new Audio("https://stream.rodio.ir/listen/noheh/radio.mp3"); // Creating an Audio object programmatically
         var playPauseBtn = document.getElementById("playPauseBtn");
 
         playPauseBtn.addEventListener("click", function() {
@@ -86,12 +67,6 @@
                 audio.pause();
                 playPauseBtn.innerHTML = "Play";
             }
-        });
-
-        var volumeControl = document.getElementById("volumeControl");
-
-        volumeControl.addEventListener("input", function() {
-            audio.volume = volumeControl.value / 100;
         });
     </script>
 </body>
