@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodio Player</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            text-align: center;
+            background-color: black;
+            color: white;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling on mobile */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Vazir', sans-serif; /* Set the font for the body */
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 30px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 50%; /* Make the button circular */
+            font-size: 36px; /* Larger font size */
+            font-weight: bold; /* Bold font */
+            font-family: 'Vazir', sans-serif; /* Set the font for the button */
+        }
+
+        button::before {
+            content: ""; /* No content before the button */
+        }
+
+        button:hover {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <button id="playPauseBtn"></button>
+
+    <script>
+        var audio = new Audio("https://stream.rodio.ir/listen/noheh/radio.mp3"); // Replace with the actual path or URL of your audio file
+        var playPauseBtn = document.getElementById("playPauseBtn");
+
+        playPauseBtn.addEventListener("click", function() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        });
+    </script>
+</body>
+</html>
